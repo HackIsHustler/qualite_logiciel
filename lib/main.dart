@@ -38,7 +38,8 @@ class PageAccueil extends StatelessWidget {
   Widget build(BuildContext context) { 
     return Scaffold( 
       appBar: AppBar( 
-        title: Text('Liste des étudiants'), 
+        title: Center(child: Text('Liste des étudiants')), 
+        backgroundColor: Colors.blue,
       ), 
       body: Padding( 
         padding: EdgeInsets.all(16.0),
@@ -95,7 +96,7 @@ class PageAccueil extends StatelessWidget {
   double calculateMoyenne(List<Etudiant> etudiants) { 
     double total = 0.0; 
     for (var etudiant in etudiants) { 
-      total += etudiant.moyenne as int; 
+      total += etudiant.moyenne ;
     } 
  
     return total / etudiants.length; 
