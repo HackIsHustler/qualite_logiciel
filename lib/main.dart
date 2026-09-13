@@ -12,6 +12,7 @@ class Etudiant {
 } 
  
 class MonApplication extends StatelessWidget { 
+  const MonApplication({super.key});
   @override 
   Widget build(BuildContext context) { 
     return MaterialApp( 
@@ -24,6 +25,7 @@ class MonApplication extends StatelessWidget {
 } 
 
 class PageAccueil extends StatelessWidget { 
+  PageAccueil({super.key});
   final List<Etudiant> etudiants = [ 
     Etudiant(nom: 'Alice', moyenne: 17.25), 
     Etudiant(nom: 'Bob', moyenne: 16.5), 
@@ -39,8 +41,8 @@ class PageAccueil extends StatelessWidget {
         title: Text('Liste des étudiants'), 
       ), 
       body: Padding( 
-        padding: 
-            EdgeInsets.all(16.0),  
+        padding: EdgeInsets.all(16.0),
+        child: Column(  
           mainAxisAlignment: MainAxisAlignment.start, 
           crossAxisAlignment: CrossAxisAlignment.stretch, 
           children: <Widget>[ 
@@ -78,7 +80,7 @@ class PageAccueil extends StatelessWidget {
               ), 
             ), 
             ElevatedButton( 
-              child: Text('Calculer la moyenne de la classe’), 
+              child: Text('Calculer la moyenne de la classe'), 
               onPressed: () { 
                 final average = calculateMoyenne(etudiants); 
                 moyenneAlertDialog(context, average); // Afficher l'alerte 
@@ -86,14 +88,13 @@ class PageAccueil extends StatelessWidget {
             ), 
           ], 
         ), 
-      ), 
-    ); 
+    )
+    );
   } 
  
   double calculateMoyenne(List<Etudiant> etudiants) { 
     double total = 0.0; 
     for (var etudiant in etudiants) { 
-      var total = 0; 
       total += etudiant.moyenne as int; 
     } 
  
@@ -121,6 +122,7 @@ class PageAccueil extends StatelessWidget {
   } 
 }
 class DetailPage extends StatelessWidget { 
+  const DetailPage({super.key});
   @override 
   Widget build(BuildContext context) { 
     final etudiant = ModalRoute.of(context)!.settings.arguments as Etudiant; 
